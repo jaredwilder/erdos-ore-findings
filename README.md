@@ -1,7 +1,11 @@
 # erdos-ore-findings
 
-**Results mined out of a 30,438-object ore ledger, independently re-checked. Including one
-`PROVED` claim that is false.**
+**Results mined out of a 30,438-object ore ledger and independently re-checked from scratch:**
+the longest composite run below 10^6, an infinite Pell family of square products, and explicit
+counterexamples to a binomial largest-prime-factor bound.
+
+One `PROVED` object in the same sample did not survive recomputation, and it is published here
+beside the ones that did.
 
 Author: Jared Wilder. First public timestamp: 2026-09-11.
 
