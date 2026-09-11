@@ -1,45 +1,55 @@
-# erdos-ore-findings
+# Mathematical results recovered from the MSL ore archive
 
-**Results mined from a 30,438-object ore ledger and independently re-checked from scratch**, together with a substantially larger Pass-3 extraction from the historical MSL corpus.
+A re-examination of a **30,438-object historical research ledger**, with selected results independently recomputed from scratch and a larger second extraction used to recover mathematics that earlier indexes had missed.
 
-The first independently recomputed results include the longest composite run below `10^6`, an infinite Pell family of square products, and explicit counterexamples to a binomial largest-prime-factor bound. Pass 3 then exposes **97 theorem-bearing families absent from the earlier comparison union**, containing **282 latest source states labelled `PROVED`**, plus curated gold results, cross-route deductions, proof repairs, and an exact Erdős #1093 divisor-engine snapshot.
+The first recomputed results include the longest composite run below `10^6`, an infinite Pell family of square products, and explicit counterexamples to a binomial largest-prime-factor bound. The larger extraction also identified **97 mathematical families absent from the earlier theorem index**, containing **282 historical records labelled `PROVED`** that required statement-by-statement review rather than automatic promotion.
 
 Author: Jared Wilder. First public timestamp: 2026-09-11.
 
-The source ledger records what the historical pipeline asserted; this repository separates that source status from recomputation and adjudication. A source label is therefore provenance, while the sections below state which objects were independently rechecked, which were promoted, and which failed.
+The historical ledger records what the original research workflow said at the time. This repository separates those old status labels from present mathematical verification.
 
----
+## Larger corpus extraction
 
-## Release-day Pass-3 full-corpus extraction
+Historical directory: `pass3-2026-09-02/`.
 
-`pass3-2026-09-02/` is a second, substantially larger extraction from the historical MSL corpus. The source index records **2,612 latest route/lemma states**, including **617 latest states labelled `PROVED` across 171 problem families**. The audit found **97 entire theorem-bearing families absent from the earlier comparison theorem union**, containing **282 latest `PROVED` states**.
+The source archive contains **2,612 latest route/lemma records**, including **617 latest records labelled `PROVED` across 171 problem families**. The second extraction found **97 entire mathematical families missing from the earlier comparison index**, accounting for **282** of those historical `PROVED` labels.
 
-Those workflow labels are not collapsed into a theorem count. The folder instead publishes status-bearing mathematical objects:
+Rather than treating those labels as a theorem count, the public extraction organizes the mathematics into reviewed objects:
 
-- all **29 curated Pass-3 gold results / reductions / repairs**;
-- all **28 cross-route and cross-problem fusion deductions**;
-- a **20-item adversarial close audit**;
-- **six explicit proof repairs**;
-- the promotion / attack queue;
+- **29** curated results, reductions, or repairs;
+- **28** deductions combining information from different routes or problems;
+- **20** audits of claimed problem closures;
+- **6** explicit proof repairs;
+- a queue of statements still requiring mathematical review;
 - an exact Erdős #1093 divisor-engine snapshot through `k<=45`.
 
-The strongest newly exposed structural package in that index is the **#1093 LCM divisor-window reduction together with the #890↔#1093 large-prime binomial bridge**. Historical novelty for those formulations remains a separate literature question.
+The strongest structural package recovered here is the **Erdős #1093 LCM divisor-window reduction together with the #890↔#1093 large-prime binomial bridge**. Historical novelty of those formulations remains a literature question.
 
----
+## Independently recomputed results
 
-## Verified here, from scratch
+### Erdős 238 — longest composite run below `10^6`
 
-### Erdős 238 — the longest composite run below `10^6`
+The maximum run of consecutive composite integers in `[2,10^6]` has length **113**:
 
-> the maximum run of consecutive composite integers in `[2,10^6]` is **113**, between the primes **492113** and **492227**, gap 114
+```text
+492114, ..., 492226
+```
 
-**Re-checked with an independent sieve. Exact match:** the run is 492114 through 492226, bracketed by 492113 and 492227.
+bracketed by the primes **492113** and **492227**, a prime gap of 114.
 
-### Erdős 930 — an infinite Pell family of square products
+An independent sieve reproduces the result exactly.
 
-The product identity is algebraic: `1·2·a·(a+1)` with `a=(x−1)/2` equals `(x²−1)/2`; Pell `x²−2s²=1` gives `x²−1=2s²`, so the product is `s²` for every Pell solution.
+### Erdős 930 — infinite Pell family of square products
 
-**Re-checked on five Pell solutions**, each an exact integer square:
+Let `a=(x−1)/2`. Then
+
+```text
+1·2·a·(a+1) = (x²−1)/2.
+```
+
+If `x²−2s²=1`, then `x²−1=2s²`, so the product equals `s²`. Because the Pell equation has infinitely many solutions, this gives an infinite family.
+
+Five exact examples were recomputed:
 
 | x | s | a | `1·2·a·(a+1)` |
 |---:|---:|---:|---:|
@@ -49,45 +59,41 @@ The product identity is algebraic: `1·2·a·(a+1)` with `a=(x−1)/2` equals `(
 | 577 | 408 | 288 | 166,464 = 408² |
 | 3363 | 2378 | 1681 | 5,654,884 = 2378² |
 
-This is an infinite family: the Pell equation has infinitely many solutions and the product identity is algebraic in each.
+### Erdős 683 — explicit counterexamples
 
-### Erdős 683 — explicit counterexamples with exact parameter scope
-
-`C(9,2)=36` has largest prime factor 3, while `C(10,3)=120` has largest prime factor 5. These give explicit counterexamples to the stated lower-bound family at the parameter values below:
+`C(9,2)=36` has largest prime factor 3, while `C(10,3)=120` has largest prime factor 5. For the tested lower-bound family:
 
 | witness | P | `c=1/2` | `c=3/4` | `c=1` |
 |---|---:|---|---|---|
 | `C(9,2)=36` | 3 | holds | refutes | refutes |
 | `C(10,3)=120` | 5 | refutes | refutes | refutes |
 
-The original object scoped the witnesses exactly this way, and the recomputation matches it.
+The historical record stated exactly those parameter ranges, and the recomputation agrees.
 
----
+## A historical `PROVED` label that fails recomputation
 
-## Audit finding: a source object labelled `PROVED` that fails recomputation
+The same problem family contains an old record labelled `PROVED` claiming that `(10,5)` forces `c <= 0.20905`.
 
-The same problem family contains a historical source object labelled `PROVED` asserting that `(10,5)` forces `c <= 0.20905`.
+It does not. `C(10,5)=252`, whose largest prime factor is 7. The tested lower bound is `min(6,5^(1+c))`, which never exceeds 6, so `P=7` satisfies the inequality for every `c`. The pair `(10,5)` therefore forces no such upper bound.
 
-It does not. `C(10,5)=252`, whose largest prime factor is 7. The tested lower bound is `min(6,5^(1+c))`; that minimum never exceeds 6, so `P=7` satisfies the inequality for every `c`. The pair `(10,5)` therefore forces no such upper bound on `c`.
+A second old record claims the `c=1/2` form for all `1<=n<=12`; the independently recomputed `(10,3)` counterexample above disproves that universal statement.
 
-A second source object claims the `c=1/2` form for all `1 <= n <= 12`, which is directly contradicted by the independently recomputed `(10,3)` witness above. The counterexample survives; the universal source claim does not.
+This is why the repository distinguishes historical workflow labels from mathematical verification.
 
-This failure is preserved because it changes how raw workflow labels in the ledger must be interpreted. It is **an audit result about the source status system**, not the headline for the mathematics that survived recomputation.
+## What the source audit found
 
-## What the larger audit establishes about source authority
+Several additional checks show why raw archive labels must be read cautiously:
 
-The mining pass found several reasons to keep source labels separate from final mathematical authority:
+- **54 of 362** rows marked `VERIFIED` in a companion kernel table have non-zero exit codes with actual errors;
+- **five Lean files** stored under a historical `kernel-verified/` directory declare their own axioms;
+- one declaration reports `sorryAx` in its axiom footprint;
+- 1,043 historical “multi-hop implication chains” are lexical links between repeated text, not mathematical derivations.
 
-- **54 of 362 rows** marked `VERIFIED` in a companion kernel-verdict table carry a non-zero exit code with a real error;
-- **five `.lean` files** in a directory named `kernel-verified/` declare their own `axiom`;
-- one declaration there reports `sorryAx` in its footprint;
-- the 1,043 historical “multi-hop implication chains” are lexical stitchings rather than mathematical derivations.
+These findings concern the old archive's metadata. They do not change the independently recomputed results or the separately reviewed mathematical extractions.
 
-These observations constrain how the raw ledger is read. They do not erase the independently recomputed results or the separately curated Pass-3 mathematical objects.
+## Reproduce the arithmetic
 
-## Reproduce the independently checked results
-
-`verify.py` recomputes every arithmetic claim on this page, including the failed source object, using only the Python standard library.
+`verify.py` recomputes the arithmetic claims on this page—including the failed historical claim—using only the Python standard library.
 
 ## License
 
