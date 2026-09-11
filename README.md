@@ -82,11 +82,13 @@ This is why the repository distinguishes historical workflow labels from mathema
 
 ## Semantic audit series
 
-A later release-day pass found **25 distinct statement/meaning failures** across four numbered audits. The human-facing index is [`SEMANTIC-AUDITS.md`](SEMANTIC-AUDITS.md).
+Release-day review has now recorded **29 distinct statement, scope, chronology, or verification failures across audits 02–06**. The human-facing index is [`SEMANTIC-AUDITS.md`](SEMANTIC-AUDITS.md).
 
-The historical filenames `SEMANTIC_COURT_02.md` through `SEMANTIC_COURT_05.md` are retained for provenance, but their public function is ordinary mathematical auditing: identify the incorrect statement, explain the failure, preserve any corrected theorem that survives, and add a regression check where practical.
+The historical filenames `SEMANTIC_COURT_02.md` through `SEMANTIC_COURT_06.md` are retained for provenance, but their public function is ordinary mathematical auditing: identify the incorrect statement, explain the failure, preserve any corrected theorem that survives, and add a regression check where practical.
 
-The audit categories include quantifier inversion, additive/multiplicative confusion, dropped hypotheses, finite-to-infinite promotion without proof, norm mismatch, domain transfer, inequality reversal, and bounded computations promoted beyond their range.
+Audit 06 is especially important because it catches the opposite direction of failure: a later `FALSE` label can itself be wrong. It repairs a false refutation of the Erdős #602 colouring theorem, restores the `(250,3)` witness in #681, fixes the `p=2` endpoint in #456, and resolves contradictory finite values in #390 by exact recomputation. fileciteturn382file0
+
+The audit categories include quantifier inversion, additive/multiplicative confusion, dropped hypotheses, finite-to-infinite promotion without proof, norm mismatch, domain transfer, inequality reversal, bounded computations promoted beyond their range, false refutations, and conflicting finite values.
 
 These corrections apply to the claims they correct. They are not a general warning label attached to unrelated results in the archive.
 
