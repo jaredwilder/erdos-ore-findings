@@ -13,6 +13,30 @@ passed.
 
 ---
 
+## Release-day Pass-3 full-corpus extraction
+
+`pass3-2026-09-02/` is a second, substantially larger extraction from the historical MSL corpus.
+The source index records **2,612 latest route/lemma states**, including **617 latest states labelled
+`PROVED` across 171 problem families**. Most importantly, the audit found **97 entire theorem-bearing
+families absent from the earlier comparison theorem union**, containing **282 latest `PROVED`
+states**.
+
+This does **not** mean there are 617 independently certified new theorems. The folder deliberately
+separates source labels from adjudicated mathematics. It currently publishes:
+
+- all 29 curated Pass-3 gold results/reductions/repairs;
+- all 28 cross-route/cross-problem fusion deductions;
+- a 20-item adversarial close audit;
+- six explicit proof repairs;
+- the promotion/attack queue;
+- an exact Erdős #1093 divisor-engine snapshot through `k<=45`.
+
+The strongest newly exposed structural package in that index is the #1093 LCM divisor-window
+reduction together with the #890↔#1093 large-prime binomial bridge. Historical novelty for those
+formulations remains explicitly unresolved.
+
+---
+
 ## Verified here, from scratch
 
 ### Erdős 238 — the longest composite run below 10⁶
