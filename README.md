@@ -80,6 +80,16 @@ A second old record claims the `c=1/2` form for all `1<=n<=12`; the independentl
 
 This is why the repository distinguishes historical workflow labels from mathematical verification.
 
+## Semantic audit series
+
+A later release-day pass found **25 distinct statement/meaning failures** across four numbered audits. The human-facing index is [`SEMANTIC-AUDITS.md`](SEMANTIC-AUDITS.md).
+
+The historical filenames `SEMANTIC_COURT_02.md` through `SEMANTIC_COURT_05.md` are retained for provenance, but their public function is ordinary mathematical auditing: identify the incorrect statement, explain the failure, preserve any corrected theorem that survives, and add a regression check where practical.
+
+The audit categories include quantifier inversion, additive/multiplicative confusion, dropped hypotheses, finite-to-infinite promotion without proof, norm mismatch, domain transfer, inequality reversal, and bounded computations promoted beyond their range.
+
+These corrections apply to the claims they correct. They are not a general warning label attached to unrelated results in the archive.
+
 ## What the source audit found
 
 Several additional checks show why raw archive labels must be read cautiously:
