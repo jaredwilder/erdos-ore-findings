@@ -45,6 +45,41 @@ supplied 11   5   4  2   1  1  1  1  1  1   2
 
 Every one clears, several with room to spare.
 
+## k = 4 — and one more level down
+
+```
+n = 45153 :  45153·45152·45151·45150·45149  |  C(90306,45153)
+```
+
+The only witness below 60,000, and again every factor is composite:
+
+| factor | factorization |
+|---|---|
+| 45153 | 3² · 29 · 173 |
+| 45152 | 2⁵ · 17 · 83 |
+| 45151 | 163 · 277 |
+| 45150 | 2 · 3 · 5² · 7 · 43 |
+| 45149 | 13 · 23 · 151 |
+
+The exponent comparison clears at every prime — `2` needs 6 and gets 7, `3` needs 3 and gets 6,
+and the eleven large primes each need 1.
+
+### The least witness per level
+
+| k | least n | count below 60,000 |
+|---|---|---|
+| 1 | 2 | 701 |
+| 2 | **2480** | 72 |
+| 3 | **8178** | 8 |
+| 4 | **45153** | 1 |
+
+Witness density drops by roughly an order of magnitude per level — which is what the
+all-factors-composite requirement predicts, and why each level needed a search an order of
+magnitude longer than the last.
+
+*(A mining pass reports the k = 5 least witness as n = 3,648,841. Not independently recomputed
+here — treat as a lead.)*
+
 ---
 
 ## The row that says this is impossible

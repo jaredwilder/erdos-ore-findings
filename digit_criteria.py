@@ -34,6 +34,21 @@ assert W == [1, 10, 756, 757, 3160, 3186, 3187, 3250, 7560, 7561, 7651, 20007]
 assert len([n for n in W if n <= 10 ** 6]) == 12
 print("  count = %d  (corpus filed 1,295 for n <= 10^6)" % len(W))
 
+# Push the enumeration to 3^24. The base-3 condition restricts n to sums of
+# DISTINCT powers of 3, so we build those directly (2^24 of them, not 3^24) and
+# filter on base 5 and base 7. Incremental construction keeps it near a minute.
+POW3 = [3 ** i for i in range(24)]
+level = [0]
+for p3 in POW3:                      # each power is either present or absent
+    level += [v + p3 for v in level]
+full = sorted(n for n in level if n and kummer_ok(n))
+print("  complete list below 3^24 = %d:" % 3 ** 24)
+print("   ", full)
+assert full == [1, 10, 756, 757, 3160, 3186, 3187, 3250, 7560, 7561, 7651,
+                20007, 59548377, 59548401, 45773612811, 45775397187]
+assert len(full) == 16
+print("  -> sixteen witnesses below 2.8e11")
+
 for n, g_expect in ((850, 5), (3125, 21)):
     g = gcd(comb(2 * n, n), 105)
     print("  corpus-named witness n=%-5d -> gcd = %d, NOT a witness" % (n, g))

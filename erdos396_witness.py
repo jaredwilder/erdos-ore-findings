@@ -67,6 +67,33 @@ for p in sorted(prod):
     print("    %-6d   %-6d  %d" % (p, prod[p], v_binom(n, p)))
     assert v_binom(n, p) >= prod[p]
 
+# ---- k = 4 : one level further ----------------------------------------------
+w4 = [n for n in range(5, 60000) if divides(n, 4)[0]]
+print("  k=4, n < 60000 witnesses:", w4)
+assert w4 == [45153]
+n = 45153
+ok, prod = divides(n, 4)
+assert ok
+assert factorint(45153) == {3: 2, 29: 1, 173: 1}
+assert factorint(45152) == {2: 5, 17: 1, 83: 1}
+assert factorint(45151) == {163: 1, 277: 1}
+assert factorint(45150) == {2: 1, 3: 1, 5: 2, 7: 1, 43: 1}
+assert factorint(45149) == {13: 1, 23: 1, 151: 1}
+assert not any(isprime(n - i) for i in range(5))
+for p_ in sorted(prod):
+    assert v_binom(n, p_) >= prod[p_]
+print("  n=45153: all five factors composite, every exponent clears")
+
+# least witness and density per level
+counts = {}
+for k in range(1, 5):
+    w = [n for n in range(k + 1, 60000) if divides(n, k)[0]]
+    counts[k] = (w[0], len(w))
+    print("    k=%d  least %-6d  count below 60000: %d" % (k, w[0], len(w)))
+assert counts[1][0] == 2 and counts[2][0] == 2480
+assert counts[3][0] == 8178 and counts[4][0] == 45153
+assert counts[2][1] > counts[3][1] > counts[4][1]
+
 # ---- why the filed PROVED mechanism is silent here --------------------------
 n = 2480
 ps = [p for p in range(2 * n // 3 + 1, n + 1) if isprime(p)]

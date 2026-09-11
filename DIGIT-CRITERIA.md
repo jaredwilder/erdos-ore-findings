@@ -39,6 +39,26 @@ n ∈ {1, 10, 756, 757, 3160, 3186, 3187, 3250, 7560, 7561, 7651, 20007}
 
 **Twelve integers. Nothing above 20007 up to ten million.**
 
+### Pushed to 2.8 × 10¹¹
+
+The base-3 condition is the cheap one: it restricts `n` to sums of distinct powers of 3, so the
+search is `O(2^d)` in the number of ternary digits rather than `O(3^d)`. Enumerating every
+base-3 `{0,1}` integer below `3²⁴ = 282,429,536,481` and filtering on the base-5 and base-7
+conditions gives the complete list:
+
+```
+1, 10, 756, 757, 3160, 3186, 3187, 3250, 7560, 7561, 7651, 20007,
+59548377, 59548401, 45773612811, 45775397187
+```
+
+**Sixteen integers below 2.8 × 10¹¹** — four more than the `10⁷` sweep, and a gap of a factor of
+nearly 3,000 between 20007 and the next one. All four large entries were confirmed to satisfy the
+digit criterion directly.
+
+This reproduces OEIS A030979. The value here is that the corpus filed all ~11 of its rows on this
+problem with the reduction correct and the enumeration never run — each one ending "the
+simultaneous base-3/5/7 digit-infinitude step remains UNTESTED.
+
 | n | base 3 | base 5 | base 7 |
 |---|---|---|---|
 | 1 | 1 | 1 | 1 |
