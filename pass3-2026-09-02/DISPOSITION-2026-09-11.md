@@ -37,7 +37,7 @@ A Pass-3 `gold` label is provenance, not a theorem-authority or novelty label. T
 | P3-G024 | #1061 | `CANONICAL_SUBJECT_PENDING_SPLIT` | universal aliquot-square generator + primitive-ray scaling + 152,803-seed certificate + second 5,000,000 search make #1061 a high-priority dedicated program |
 | P3-G025 | #677 | `COMPACT_THEOREM` | routed to `erdos677-k2-lcm-slice.md`; complete `k=2` slice only |
 | P3-G026 | #170 | `SUBSUMED` | richer `erdos170-sparse-ruler-results.md` already contains the general counting bound, exact table through 20, corrected witnesses, parity obstruction and restricted/unrestricted split |
-| P3-G027 | #535 | `SUBSUMED_CLASSICAL` | powers-of-two 3-AP-free construction is classical baseline infrastructure; no need for a separate release artifact solely to inflate the theorem bank |
+| P3-G027 | #535 | `SUBSUMED_CORRECTED_SEMANTICS` | the numerical lower bound survives, but the Pass-3 title “powers of two are 3-AP-free” mislabels the mechanism. Canonical #535 concerns avoiding `r`-sets with equal pairwise gcd. Distinct powers `2^i<2^j<2^k` have pairwise gcds `2^i,2^i,2^j`, so powers of two validly give `f_3(N)>=floor(log2 N)+1`. The audited promoted catalog records this correct equal-gcd interpretation |
 | P3-G028 | #985 | `COMPACT_THEOREM` | Fermat-prime primitive-root result already routed in the compact theorem layer; historical novelty not claimed |
 | P3-G029 | #486 | `PUBLIC_MINE` | the source itself required canonical-definition replay before promotion; current public #486 work is represented instead by the stronger summable-forbidden-mass theorem. This old closed-form row remains research history unless independently reconstructed under the exact canonical activation rule |
 
@@ -63,3 +63,4 @@ The next extraction target is not “more Pass-3.” It is the historically omit
 4. An exact finite computation remains finite (#1107, C(13,6,3)).
 5. A current external frontier can reduce the publication value of an old internal subcase (#486) without erasing its provenance.
 6. Several rows can be evidence lanes of one program (#890↔#1093, #289, #949, #1061) rather than artificial separate theorem/repo counts.
+7. A mathematically valid construction can survive a bad workflow title only after its actual canonical mechanism is reconstructed (#535).
