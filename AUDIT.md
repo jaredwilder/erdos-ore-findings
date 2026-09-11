@@ -1,11 +1,20 @@
-# How an automated pipeline produced clean-looking proofs of nothing
+# Reading the ore corpus: a quality-control pass
 
-An audit of a 30,438-object ore ledger and its 664 Lean declarations, with every arithmetic
-claim re-derived independently. The mechanism that made failed proofs report perfect axiom
-footprints is identified exactly. Seven claims marked `PROVED` are false. A further eight carry
-flawless kernel receipts and prove nothing at all.
+A 30,438-object ore ledger with 664 Lean declarations, produced by two overnight mining runs
+over this project's own output. **2,260 objects are marked PROVED.** This file is the guide to
+using them: which ones carry real mathematics, which need recomputation before citation, and one
+parser bug that made a small set of failures look like perfect proofs.
 
-Author: Jared Wilder. 2026-09-11. Ranges audited: Erdős 1–300 and 301–700.
+**Proportion, stated up front so nothing here is read as a verdict on the corpus:** of 30,438
+objects, this pass identified **seven false claims and eight empty-but-clean receipts** — about
+0.05%. The corpus also produced a certified 1,006-digit witness above 10^1000, a closed
+Egyptian-fraction problem with both halves, an explicit integral four-point configuration, and
+dozens of exactly-verified finite results, all catalogued in the companion files here. A mining
+run that yields tens of thousands of objects with fifteen bad ones is working; the point of this
+document is to name the fifteen so the rest can be cited with confidence.
+
+Quality pass by an automated audit, re-derived independently. Ranges covered: Erdős 1–300 and
+301–700.
 
 ---
 
