@@ -1,80 +1,72 @@
-# Semantic Court 08 — Erdős #829: the Mahler citation does not refute the conjecture
+# Semantic audit 08 — Erdős #829 and the Mahler citation
 
-Author: Jared Wilder  
-Public release: 2026-09-11
+Author: Jared Wilder. Public release: 2026-09-11.
 
-## Canonical mathematical object
+## The problem
 
-Let `A` be the set of nonnegative perfect cubes and let the convolution be the **additive representation function**
+Let `A` be the set of nonnegative perfect cubes and let
 
-`r(n) = #{(a,b) in A^2 : a+b=n}`.
+`r(n)=#{(a,b)∈A^2 : a+b=n}`.
 
-Erdős #829 asks whether there is some fixed `C` with
+Erdős #829 asks whether there is a fixed constant `C` such that
 
-`r(n) = O((log n)^C)`.
+`r(n)=O((log n)^C)`.
 
-## False raw close
+The problem is currently recorded as open.
 
-The Day-One chronology contains a `PROVED` row asserting that Mahler gives
+## Historical citation error
+
+One recovered research row attributes to Mahler a lower bound of the form
 
 `r(n) >= exp(c (log n)^(1/3))`
 
-along an infinite sequence, and therefore that `r(n)` exceeds every fixed power of `log n`.
+along an infinite sequence and uses that to reject every polylogarithmic upper bound.
 
-That citation claim is false.
+That is not the cited theorem.
 
-## What Mahler actually proved
+The current Erdős #829 literature summary records Mahler's lower bound as
 
-Mahler's 1935 theorem gives infinitely many positive integers `n` for which the number of positive representations as a sum of two cubes exceeds
+`r(n) >> (log n)^(1/4)`
 
-`(log n)^(1/4)`.
+for infinitely many `n`. Stewart later improved the exponent to
 
-This is a fixed power of `log n`, not a super-polylogarithmic function.
+`11/13`.
 
-The modern Formal Conjectures record for Erdős #829 states the same bound and also records Stewart's later improvement to
+Both are fixed powers of `log n`, so neither contradicts the possibility that `r(n)=O((log n)^C)` for some larger fixed `C`.
 
-`(log n)^(11/13)`
+## Additive and Dirichlet convolution are different problems
 
-for infinitely many `n`.
+Historical notes around this problem also drift between two operations:
 
-Again, `11/13` is a fixed exponent. This is fully compatible with the existence of some larger exponent `C` giving a universal polylogarithmic upper bound.
+- additive convolution counts representations `x^3+y^3=n`;
+- Dirichlet convolution counts multiplicative factorizations `de=n` with cube constraints.
 
-Thus neither Mahler's theorem nor Stewart's improvement refutes Erdős #829.
+The formal Erdős #829 statement uses the additive representation function. Divisor-count arguments about multiplicative factorizations therefore do not resolve the stated problem.
 
-## Semantic fork: additive versus Dirichlet convolution
+## A coarse surviving bound
 
-Some historical machine text around this problem also drifted between two meanings of `*`:
-
-- additive convolution counts `x^3+y^3=n`;
-- Dirichlet convolution counts multiplicative factorizations `de=n` with both factors cubes.
-
-These are different problems.
-
-The current Formal Conjectures theorem uses its `sumRep` additive representation function, matching the intended sums-of-two-cubes problem. Any primorial/cube argument based on divisor counts belongs to the Dirichlet-convolution fork and cannot close the additive problem.
-
-## Surviving mathematics
-
-The elementary divisor reduction
+The elementary estimate
 
 `r(n) <= 2 tau(n)`
 
-may be useful as a coarse bound, but maximal divisor growth is itself super-polylogarithmic, so this estimate does not prove the desired conjecture. Conversely, the large maximal order of `tau(n)` does not manufacture sums-of-two-cubes representations and therefore does not disprove it.
+is a legitimate coarse upper bound. It is not strong enough to prove a universal polylogarithmic estimate because the maximal order of `tau(n)` is itself larger than every fixed power of `log n` along suitable integers. Conversely, that divisor growth does not create sums-of-two-cubes representations and therefore does not disprove the conjecture.
 
-The raw chronology eventually recognizes exactly this gap. The correct terminal status is:
+## Current status
 
-**Erdős #829 remains open; the Mahler/CRT negative close is rejected.**
+The recovered Mahler-based negative conclusion is rejected. Erdős #829 remains open in the current problem database and formal-conjecture record.
 
 ## Sources checked
 
-- K. Mahler, *On the lattice points on curves of genus 1*, Proc. London Math. Soc. (1935), especially the theorem giving more than the fourth root of `log n` representations along an infinite sequence.
-- C. L. Stewart, *Cubic Thue equations with many solutions*, IMRN (2008), recorded in the modern Erdős #829 formalization with exponent `11/13`.
-- Google DeepMind `formal-conjectures`, Erdős 829, which classifies the polylogarithmic upper-bound question as research-open and records both lower bounds above.
+- K. Mahler, *On the Lattice Points on Curves of Genus 1*, Proc. London Math. Soc. (1935), 431–466.
+- C. L. Stewart, *Cubic Thue Equations with Many Solutions*, IMRN (2008), rnn040.
+- the current Erdős Problems #829 record;
+- Google DeepMind `formal-conjectures`, Erdős 829.
 
-## Operational lesson
+## Correction principle
 
-A real theorem attached to the correct author is not enough. The **quantitative strength** of the cited theorem must be checked. Replacing `(log n)^(1/4)` by `exp(c(log n)^(1/3))` changes a compatible lower bound into a purported disproof of an open problem.
+A citation can name the right author and still be mathematically misused if its quantitative strength is changed. Here, replacing a fixed polylogarithmic lower bound by a super-polylogarithmic one turns compatible evidence into a false disproof.
 
-Citation-strength drift is therefore a first-class Semantic Court failure mode.
+The exponent and the operation being discussed must both be checked before a literature result is used to change problem status.
 
 ## License
 
