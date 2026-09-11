@@ -63,16 +63,23 @@ Complete enumeration over all mark sets containing 0 and N, smallest size first.
 F(1..20) = 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8
 ```
 
-Extended by the same exhaustive method to N = 43:
+Extended by the same exhaustive method to N = 48:
 
 ```
-F(1..43) = 2,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,8,8,
-           9,9,9,9,9,9,10,10,10,10,10,10,10,11,11,11,11,11,11,11
+F(1..48) = 2,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,8,8,9,9,9,9,9,9,
+           10,10,10,10,10,10,10,11,11,11,11,11,11,11,12,12,12,12,12
 ```
 
-with `F(N) <= F(N+1) <= F(N)+1` throughout. Sample witnesses at the top of the range:
-`F(36)=10` via `{0,1,3,6,13,20,27,31,35,36}` and `F(43)=11` via
-`{0,1,3,6,13,20,27,34,38,42,43}`.
+with `F(N) <= F(N+1) <= F(N)+1` throughout the range. Witnesses at the top:
+`F(43)=11` via `{0,1,3,6,13,20,27,34,38,42,43}` and `F(48)=12` via
+`{0,1,2,3,13,26,29,33,39,43,47,48}` — both checked to cover every distance.
+
+The value runs come in equal-length pairs:
+
+```
+F =  4  5  |  6  7  |  8  9  | 10 11
+run  3  3  |  4  4  |  6  6  |  7  7
+```
 
 Agrees with the known sparse-ruler sequence. The value here is adjudication, not novelty —
 everything below is a corpus claim this table settles.
@@ -117,16 +124,29 @@ For the real bound, exhaustively:
 | | N |
 |---|---|
 | **tight** | 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 16, 17, 22, 23, 29 |
-| **not tight** | **10, 14, 15, 18, 19, 20, 21, 24-28, 30-43** |
+| **not tight** | everything else through N = 48 |
 
-(over the full computed range N <= 43)
+(seventeen tight values over the full computed range N <= 48, and none above N = 29)
 
 So the corpus claims that the bound fails at N = 4 and N = 7 are **both wrong** — it is tight at
-both. The first genuine failure is **N = 10**, where the bound gives 5 and the truth is 6.
+both. The correct statement of where pair-counting gives out:
+
+```
+tight through N = 9
+first short by 1 at N = 10   (bound 5, truth 6)
+first short by 2 at N = 44   (bound 10, truth 12)
+```
 
 This matters beyond bookkeeping: the campaign's route-selection narrative records that the
 pair-count bound "is provably not the answer (F(4)=4, F(7)=5, F(10)=6 all exceed it)," and routes
-were opened and killed on that basis. Two of those three data points are false.
+were opened and killed on that basis. Two of those three data points are false — the instinct was
+right and the evidence was wrong.
+
+**And the two halves of this document are the same fact.** The counting bound is asymptotically
+`√(2N)`, i.e. constant `√2 = 1.4142`. The true constant is `c₀ = 1.5603`. Since `1.5603 > 1.4142`,
+the deficit `F(N) − ⌈(1+√(1+8N))/2⌉` has to grow without limit — and N = 44 is simply the first
+place it reaches 2. A corpus that had evaluated `c₀` correctly would have predicted that widening
+instead of being surprised by it.
 
 ## The "non-monotone" claim is mislabelled
 
