@@ -86,7 +86,7 @@ Release-day review has now recorded **29 distinct statement, scope, chronology, 
 
 The historical filenames `SEMANTIC_COURT_02.md` through `SEMANTIC_COURT_06.md` are retained for provenance, but their public function is ordinary mathematical auditing: identify the incorrect statement, explain the failure, preserve any corrected theorem that survives, and add a regression check where practical.
 
-Audit 06 is especially important because it catches the opposite direction of failure: a later `FALSE` label can itself be wrong. It repairs a false refutation of the Erdős #602 colouring theorem, restores the `(250,3)` witness in #681, fixes the `p=2` endpoint in #456, and resolves contradictory finite values in #390 by exact recomputation. fileciteturn382file0
+Audit 06 is especially important because it catches the opposite direction of failure: a later `FALSE` label can itself be wrong. It repairs a false refutation of the Erdős #602 colouring theorem, restores the `(250,3)` witness in #681, fixes the `p=2` endpoint in #456, and resolves contradictory finite values in #390 by exact recomputation.
 
 The audit categories include quantifier inversion, additive/multiplicative confusion, dropped hypotheses, finite-to-infinite promotion without proof, norm mismatch, domain transfer, inequality reversal, bounded computations promoted beyond their range, false refutations, and conflicting finite values.
 
