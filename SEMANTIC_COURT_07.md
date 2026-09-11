@@ -1,63 +1,56 @@
-# Semantic Court 07 — interval-length mistakes can generate false refutations
+# Semantic audit 07 — interval-length errors in Erdős #394
 
-Author: Jared Wilder  
-Public release: 2026-09-11
+Author: Jared Wilder. Public release: 2026-09-11.
 
-This packet records two false `FALSE` events found in the Erdős #394 chronology. Both arise from elementary interval-length bookkeeping.
+This audit corrects two historical `FALSE` labels in the Erdős #394 chronology. Both errors come from elementary interval bookkeeping.
 
-Let `t_k(n)` be the least positive `m` such that
+Let `t_k(n)` be the least positive integer `m` such that
 
 `n | m(m+1)...(m+k-1)`.
 
-## 1. `t_2(4)=3` is correct
+## 1. `t_2(4)=3`
 
-A later raw row claims `t_2(4)=3` is false because `4 | 2*3*4=24`, allegedly showing `t_2(4)<=2`.
+One historical row rejects `t_2(4)=3` because `4|2*3*4=24`, treating that as evidence that `t_2(4)<=2`.
 
-But `t_2` uses exactly **two** consecutive factors. At `m=2` the relevant product is
+But `t_2` uses exactly **two** consecutive factors. At `m=2`, the relevant product is
 
 `2*3=6`,
 
-which is not divisible by 4.
-
-At `m=3`,
+which is not divisible by 4. At `m=3`,
 
 `3*4=12`,
 
 which is divisible by 4. Therefore
 
-` t_2(4)=3 `.
+`t_2(4)=3`.
 
-The supposed refutation silently changed a length-2 product into a length-3 product.
+The attempted refutation changed a length-2 product into a length-3 product.
 
-## 2. `t_2(2)=1` supports, rather than refutes, the prime formula
+## 2. `t_2(2)=1` agrees with the prime formula
 
-Another raw `FALSE` row says the identity
+Another historical `FALSE` row claims that
 
 `t_2(p)=p-1`
 
-cannot hold for all primes because `t_2(2)=1`.
+fails at the prime `p=2` because `t_2(2)=1`.
 
-But for `p=2`,
+But `p-1=1` at `p=2`. The endpoint agrees exactly with the formula.
 
-`p-1=1`.
+## 3. General prime-window theorem
 
-So `t_2(2)=1` is exact agreement with the formula, not a counterexample.
+For every prime `p>k`,
 
-## 3. Surviving general theorem
+`t_k(p)=p-k+1`.
 
-The chronology's prime mechanism actually extends cleanly: for every prime `p>k`,
+Before `m=p-k+1`, the whole length-`k` interval lies in `{1,...,p-1}` and therefore contains no multiple of `p`. At `m=p-k+1`, the interval ends at `p`.
 
-` t_k(p)=p-k+1 `.
+The theorem has its own writeup in `jaredwilder/erdos-proved-lemmas/erdos394-prime-window.md`.
 
-Before `m=p-k+1`, the length-`k` interval lies entirely below `p`; at `m=p-k+1` it ends at `p`.
+## Correction principle
 
-That theorem is released separately in the canonical proved-lemmas bank.
+A concrete refutation is only as good as the definition it computes. Here, one row used the wrong interval length and another failed to evaluate its own comparison formula at the endpoint.
 
-## Operational lesson
-
-Small-index semantics need the same court treatment as sophisticated asymptotics. A single off-by-one change in the number of factors can create a perfectly explicit but completely false refutation; a numerically correct endpoint can be mislabelled as a counterexample simply because the comparison value was not evaluated.
-
-Direct recomputation outranks the chronology label.
+Direct recomputation restores the two finite facts and leaves the general prime-window theorem intact.
 
 ## License
 
