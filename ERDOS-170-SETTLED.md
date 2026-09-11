@@ -63,6 +63,17 @@ Complete enumeration over all mark sets containing 0 and N, smallest size first.
 F(1..20) = 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8
 ```
 
+Extended by the same exhaustive method to N = 43:
+
+```
+F(1..43) = 2,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,8,8,
+           9,9,9,9,9,9,10,10,10,10,10,10,10,11,11,11,11,11,11,11
+```
+
+with `F(N) <= F(N+1) <= F(N)+1` throughout. Sample witnesses at the top of the range:
+`F(36)=10` via `{0,1,3,6,13,20,27,31,35,36}` and `F(43)=11` via
+`{0,1,3,6,13,20,27,34,38,42,43}`.
+
 Agrees with the known sparse-ruler sequence. The value here is adjudication, not novelty —
 everything below is a corpus claim this table settles.
 
@@ -105,8 +116,10 @@ For the real bound, exhaustively:
 
 | | N |
 |---|---|
-| **tight** | 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 16, 17 |
-| **not tight** | **10, 14, 15, 18, 19, 20** |
+| **tight** | 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 16, 17, 22, 23, 29 |
+| **not tight** | **10, 14, 15, 18, 19, 20, 21, 24-28, 30-43** |
+
+(over the full computed range N <= 43)
 
 So the corpus claims that the bound fails at N = 4 and N = 7 are **both wrong** — it is tight at
 both. The first genuine failure is **N = 10**, where the bound gives 5 and the truth is 6.
